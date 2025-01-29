@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re.Vibe - Sustainable Fashion, Redefined</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        :root {
+            --primary-color: #2CB67D;
+            --primary-light: #E8F5E9;
+            --text-dark: #1A1A1A;
+            --text-light: #666666;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #FFFFFF;
+        }
+
+        .hero {
+            background: url('background.png');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, 
+                rgba(0,0,0,0.8) 0%,
+                rgba(0,0,0,0.6) 40%,
+                rgba(0,0,0,0) 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-bottom: 10.5rem;
+	    margin-left: 1.5rem;
+            padding: 0 2rem;
+            position: left;
+        }
+
+        .hero-content {
+            color: white;
+            position: relative;
+            z-index: 2;
+            padding-top: 120px; /* Space for logo */
+            max-width: 600px;
+        }
+
+        .logo {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            max-width: 150px;
+            z-index: 3;
+        }
+
+        .logo img {
+            width: 100%;
+            height: auto;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+            color: white;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+            font-weight: 300;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .button {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .button-primary {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 15px rgba(44, 182, 125, 0.2);
+        }
+
+        .button-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(44, 182, 125, 0.3);
+        }
+
+        .button-secondary {
+            border: 2px solid white;
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .button-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .stats-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            display: inline-block;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stats-card p {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0.5rem;
+        }
+
+        .stats-card h3 {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .section {
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+            text-align: left;
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            margin-bottom: 1.5rem;
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        h3 {
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .text-muted {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                padding-top: 150px; /* Increased space for logo on mobile */
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+            
+            .button {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .features, .services {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="logo">
+            <img src="logo.png" alt="Re.Vibe Logo">
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Sustainable Fashion, Redefined.</h1>
+                <p class="subtitle">Renew, Rewear, Re.Vibe — Join Munich's sustainable fashion revolution.</p>
+                <div class="button-group">
+                    <a href="#" class="button button-primary">Shop Now</a>
+                    <a href="#" class="button button-secondary">Schedule a Pickup</a>
+                </div>
+                <div class="stats-card">
+                    <p>Already saved</p>
+                    <h3>2,450 kg of CO₂</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="section">
+        <div class="container">
+            <h2>Why Re.Vibe?</h2>
+            <p class="subtitle">Join us in making fashion sustainable, one piece at a time.</p>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🚗</div>
+                    <h3>Eco-Friendly Deliveries</h3>
+                    <p class="text-muted">Zero-emission delivery fleet for a greener Munich</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌳</div>
+                    <h3>Tree-Planting Initiatives</h3>
+                    <p class="text-muted">One purchase, one tree planted in Bavaria</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👕</div>
+                    <h3>Quality Second-Hand Clothes</h3>
+                    <p class="text-muted">Carefully curated and quality-checked items</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: #F8F9FA;">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services">
+                <div class="service-card">
+                    <h3>On-Demand Pickup</h3>
+                    <p class="text-muted">Schedule a convenient pickup time at your location</p>
+                </div>
+                <div class="service-card">
+                    <h3>Drop-In Bins</h3>
+                    <p class="text-muted">Easily accessible drop-off points throughout Munich</p>
+                </div>
+                <div class="service-card">
+                    <h3>Eco-Friendly Delivery</h3>
+                    <p class="text-muted">Zero-emission delivery to your doorstep</p>
+                </div>
+                <div class="service-card">
+                    <h3>Seasonal Collections</h3>
+                    <p class="text-muted">Curated collections updated every season</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
